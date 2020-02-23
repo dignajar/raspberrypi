@@ -1,0 +1,22 @@
+---
+
+- name: Disable PasswordAuthentication
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: '^PasswordAuthentication'
+    line: 'PasswordAuthentication no'
+  notify: restart sshd
+
+- name: Disable UsePAM
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: '^UsePAM'
+    line: 'UsePAM no'
+  notify: restart sshd
+
+- name: Disable ChallengeResponseAuthentication
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: '^ChallengeResponseAuthentication'
+    line: 'ChallengeResponseAuthentication no'
+  notify: restart sshd

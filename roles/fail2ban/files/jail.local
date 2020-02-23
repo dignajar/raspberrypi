@@ -1,0 +1,17 @@
+[DEFAULT]
+ignoreip = 127.0.0.0/8 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16
+
+# Amount of seconds banned
+bantime = 15
+
+# Window of time betewen fails in seconds
+# 600 sec = 10 min
+findtime = 600
+maxretry = 3
+
+[sshd]
+enabled = true
+port = 22
+filter = sshd
+logpath = /var/log/auth.log
+mode = aggressive

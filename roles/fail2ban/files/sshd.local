@@ -1,0 +1,4 @@
+[Definition]
+# This filter is to catch closed connections by sshd for invalid private keys
+failregex = %(known/failregex)s
+            %(__prefix_line)sConnection closed by authenticating user <F-USER>.+</F-USER> <HOST> port \d+ \[preauth\]$

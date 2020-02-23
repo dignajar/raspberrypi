@@ -1,0 +1,26 @@
+---
+
+- name: Install Fail2ban
+  apt:
+    name: fail2ban
+    state: latest
+
+- name: Copy configuration file
+  copy:
+    src: jail.local
+    dest: /etc/fail2ban/jail.local
+    mode: 0644
+  notify: reload fail2ban
+
+- name: Copy SSH filter file
+  copy:
+    src: sshd.local
+    dest: /etc/fail2ban/filter.d/sshd.local
+    mode: 0644
+  notify: reload fail2ban
+
+- name: Ensure service is working and enabled
+  service:
+    name: fail2ban
+    state: started
+    enabled: yes
